@@ -2,11 +2,13 @@ package com.mas.sonam.iotproducer.iotproducer.model;
 
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonProperty;
+import lombok.Builder;
 import lombok.Getter;
 
 import java.util.Date;
 
 @Getter
+@Builder
 public class IotDevice {
 
     private String id;
@@ -49,7 +51,7 @@ public class IotDevice {
         this.date = date;
     }
 
-    public IotDevice() {}
+    public IotDevice(String heartMeter, long l, Date date) {}
 
     @JsonCreator
     public IotDevice(@JsonProperty("id") String id,
