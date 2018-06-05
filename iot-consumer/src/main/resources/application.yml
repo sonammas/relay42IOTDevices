@@ -8,7 +8,7 @@ server:
 
 spring:
   application:
-    name: iot-application
+    name: iot-consumer
   data:
     mongodb.host: localhost
     mongodb.port: 32769
