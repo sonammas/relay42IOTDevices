@@ -34,3 +34,16 @@ Check logs >>
 2018-06-05 19:20:16.482  INFO 13100 --- [ntainer#0-0-C-1] c.m.s.i.i.s.IotSaveKafkaMessageService   : IotDeviceData is saved into the database = 931c8e3a-d5f6-4106-94d0-71f8cd553064
 
 
+Note: Used Apache kafka as data streaming technology as you can dump as much data as possible. It is highly scalable,
+and works really well when there is massive flow of data from multiple clients and routing it to the systems that needs that data.
+
+Also kafka is very good for performing computations on the stored data like filtering, aggregating etc.
+
+Also configured MongoDB as a kafka consumer. Again very scalable and data can be stored as BSON documents easily and also very
+easy to query from.
+
+Though I have learnt about MongoDB in this assigment only ;) 
+
+I had one more idea - we can completely get rid of mongoDb and use KSQL to query directly on kafka as use kafka as data source .
+And I dont feel it is wrong as in general terms iot device data nobody wants to store for years in database.
+So we can aggregate the data from one kafka topic and stream the data to other kafka topic.
