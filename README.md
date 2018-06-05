@@ -10,7 +10,9 @@ Technologies used :
 4) Docker
 
 Steps to run:
-The folllowing instructions will show how to run the application:
+The following instructions will show how to run the application:
+
+Clone this project onto your local system
 
 1) Run docker on Windows 
 
