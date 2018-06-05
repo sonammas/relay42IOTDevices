@@ -1,6 +1,7 @@
 package com.mas.sonam.iotconsumer.iotconsumer.controller;
 
 import com.mas.sonam.iotconsumer.iotconsumer.service.IotQueryService;
+import lombok.AllArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.format.annotation.DateTimeFormat;
 import org.springframework.web.bind.annotation.*;
@@ -18,15 +19,12 @@ import java.util.List;
  */
 
 @Slf4j
+@AllArgsConstructor
 @RestController
 @RequestMapping(value = "iotdevice")
 public class IotQueryController {
 
     private final IotQueryService iotService;
-
-    public IotQueryController(IotQueryService iotService) {
-        this.iotService = iotService;
-    }
 
     /**
      * This rest end point to used to query the readings to get average, min, max, median etc of ONE specific sensor for a

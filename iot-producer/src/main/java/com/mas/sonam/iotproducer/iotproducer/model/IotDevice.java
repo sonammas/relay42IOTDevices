@@ -4,10 +4,11 @@ import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import lombok.Builder;
 import lombok.Getter;
+import lombok.Value;
 
 import java.util.Date;
 
-@Getter
+@Value
 @Builder
 public class IotDevice {
 
@@ -18,40 +19,6 @@ public class IotDevice {
     private Long value;
 
     private Date date;
-
-    public String getId() {
-        return id;
-    }
-
-    public void setId(String id) {
-        this.id = id;
-    }
-
-    public String getDeviceName() {
-        return deviceName;
-    }
-
-    public void setDeviceName(String deviceName) {
-        this.deviceName = deviceName;
-    }
-
-    public Long getValue() {
-        return value;
-    }
-
-    public void setValue(Long value) {
-        this.value = value;
-    }
-
-    public Date getDate() {
-        return date;
-    }
-
-    public void setDate(Date date) {
-        this.date = date;
-    }
-
-    public IotDevice(String heartMeter, long l, Date date) {}
 
     @JsonCreator
     public IotDevice(@JsonProperty("id") String id,

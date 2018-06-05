@@ -49,8 +49,7 @@ http://localhost:8897/iotdevice/thermostat/operation/average?from=2018-06-05&to=
 
 9) Query maximum reading for list of devices over a period of time
 Use postman to hit this URL as GET operation
-http://localhost:8897/iotdevice/operation/max?list=thermostat&list=carFuel&from=2018-06-05&to=2018-06-06
-
+http://localhost:8897/iotdevice/operation/max?deviceName=thermostat&deviceName=carFuel&from=2018-06-05&to=2018-06-06
 etc etc.
 
 Note: Used Apache kafka as data streaming technology as you can dump as much data as possible. It is highly scalable,

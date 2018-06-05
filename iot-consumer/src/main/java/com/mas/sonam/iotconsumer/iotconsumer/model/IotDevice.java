@@ -33,22 +33,6 @@ public class IotDevice {
         this.date = date;
     }
 
-    public String getId() {
-        return id;
-    }
-
-    public Date getDate() {
-        return date;
-    }
-
-    public String getDeviceName() {
-        return deviceName;
-    }
-
-    public Long getValue() {
-        return value;
-    }
-
     @Override
     public String toString() {
         return MoreObjects.toStringHelper(this)

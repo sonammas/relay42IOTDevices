@@ -2,6 +2,7 @@ package com.mas.sonam.iotproducer.iotproducer.scheduledTasks;
 
 import com.mas.sonam.iotproducer.iotproducer.model.IotDevice;
 import com.mas.sonam.iotproducer.iotproducer.producer.IotProducerService;
+import lombok.AllArgsConstructor;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.scheduling.annotation.Scheduled;
@@ -12,16 +13,13 @@ import java.time.format.DateTimeFormatter;
 import java.util.Date;
 
 @Component
+@AllArgsConstructor
 public class ScheduledClass {
 
     private static final Logger logger = LoggerFactory.getLogger(ScheduledClass.class);
     private static final DateTimeFormatter dateTimeFormatter = DateTimeFormatter.ofPattern("HH:mm:ss");
 
     private final IotProducerService iotProducerService;
-
-    public ScheduledClass(IotProducerService iotProducerService) {
-        this.iotProducerService = iotProducerService;
-    }
 
     private Long getRandomLongValue(){
         long leftLimit = 1L;

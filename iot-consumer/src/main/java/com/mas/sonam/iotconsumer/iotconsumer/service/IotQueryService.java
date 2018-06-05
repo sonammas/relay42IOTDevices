@@ -2,6 +2,7 @@ package com.mas.sonam.iotconsumer.iotconsumer.service;
 
 import com.mas.sonam.iotconsumer.iotconsumer.model.IotDevice;
 import com.mas.sonam.iotconsumer.iotconsumer.repository.IotDeviceRepository;
+import lombok.AllArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -12,15 +13,11 @@ import java.util.stream.Collectors;
 import java.util.stream.DoubleStream;
 
 @Service
-
+@AllArgsConstructor
 public class IotQueryService {
 
     @Autowired
     private final IotDeviceRepository iotDeviceRepository;
-
-    public IotQueryService(IotDeviceRepository iotDeviceRepository) {
-        this.iotDeviceRepository = iotDeviceRepository;
-    }
 
     public Double getReadingsValueByDeviceNameAndTimestamp(final String deviceName, final Date fromDate,
                                                            final Date toDate, final String operation) {
