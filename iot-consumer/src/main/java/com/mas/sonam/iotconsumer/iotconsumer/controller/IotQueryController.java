@@ -2,6 +2,7 @@ package com.mas.sonam.iotconsumer.iotconsumer.controller;
 
 import com.mas.sonam.iotconsumer.iotconsumer.service.IotQueryService;
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.format.annotation.DateTimeFormat;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.Date;
@@ -39,8 +40,8 @@ public class IotQueryController {
      */
     @GetMapping(value = "{deviceName}/operation/{operation}")
     public Double getReadingByDeviceNameAndWithinDates(@PathVariable final String deviceName, @PathVariable final String operation,
-                                                    @RequestParam final Date fromDate,
-                                                    @RequestParam final Date toDate) {
+                                                    @RequestParam("from") @DateTimeFormat(pattern="yyyy-MM-dd") final Date fromDate,
+                                                    @RequestParam("to") @DateTimeFormat(pattern="yyyy-MM-dd") final Date toDate) {
         return iotService.getReadingsValueByDeviceNameAndTimestamp(deviceName, fromDate, toDate, operation);
     }
 
@@ -55,10 +56,10 @@ public class IotQueryController {
      * @return Double value - can be minimum, maximum, average, median of the readings
      */
 
-    @GetMapping(value = "{operation/{operation}")
-    public Double getReadingsForGroupOfDeviceByDeviceNameAndWithinDates(@RequestParam("list") final List<String> deviceNames, @PathVariable final String operation,
-                                                                        @RequestParam final Date fromDate,
-                                                                        @RequestParam final Date toDate) {
+    @GetMapping(value = "/operation/{operation}")
+    public Double getReadingsForGroupOfDeviceByDeviceNameAndWithinDates(@RequestParam("deviceName") final List<String> deviceNames, @PathVariable final String operation,
+                                                                        @RequestParam("from") @DateTimeFormat(pattern="yyyy-MM-dd") final Date fromDate,
+                                                                        @RequestParam("to") @DateTimeFormat(pattern="yyyy-MM-dd") final Date toDate) {
         return iotService.getReadingsForGroupOfDeviceByDeviceNameAndWithinDates(deviceNames, fromDate, toDate, operation);
     }
 }

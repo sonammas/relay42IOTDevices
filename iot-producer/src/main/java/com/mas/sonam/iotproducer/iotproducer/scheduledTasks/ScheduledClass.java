@@ -23,15 +23,18 @@ public class ScheduledClass {
         this.iotProducerService = iotProducerService;
     }
 
-    private long leftLimit = 1L;
-    private long rightLimit = 10L;
-    private long generatedLongValue = leftLimit + (long) (Math.random() * (rightLimit - leftLimit));
+    private Long getRandomLongValue(){
+        long leftLimit = 1L;
+        long rightLimit = 10L;
+       return leftLimit + (long) (Math.random() * (rightLimit - leftLimit));
+    }
+
 
     //Schedular to stimulate IOTDevice1 - thermostat data
     @Scheduled(fixedRate = 1000)
     public void scheduleTaskToSendThermostatData() {
         logger.info("Fixed Rate Task :: Execution Time - {}", dateTimeFormatter.format(LocalDateTime.now()));
-        IotDevice thermostat = IotDevice.builder().deviceName("thermostat").value(generatedLongValue).date(new Date()).build();
+        IotDevice thermostat = IotDevice.builder().deviceName("thermostat").value(getRandomLongValue()).date(new Date()).build();
         iotProducerService.publish(thermostat);
     }
 
@@ -39,7 +42,7 @@ public class ScheduledClass {
     @Scheduled(fixedRate = 1000)
     public void scheduleTaskToSendHeartMeterData() {
         logger.info("Fixed Rate Task :: Execution Time - {}", dateTimeFormatter.format(LocalDateTime.now()));
-        IotDevice heartMeter = IotDevice.builder().deviceName("heartMeter").value(generatedLongValue).date(new Date()).build();
+        IotDevice heartMeter = IotDevice.builder().deviceName("heartMeter").value(getRandomLongValue()).date(new Date()).build();
         iotProducerService.publish(heartMeter);
     }
 
@@ -47,7 +50,7 @@ public class ScheduledClass {
     @Scheduled(fixedRate = 1000)
     public void scheduleTaskToSendCarFuelData() {
         logger.info("Fixed Rate Task :: Execution Time - {}", dateTimeFormatter.format(LocalDateTime.now()));
-        IotDevice carFuel = IotDevice.builder().deviceName("carFuel").value(generatedLongValue).date(new Date()).build();
+        IotDevice carFuel = IotDevice.builder().deviceName("carFuel").value(getRandomLongValue()).date(new Date()).build();
         iotProducerService.publish(carFuel);
     }
 }
