@@ -1,3 +1,7 @@
+spring:
+  application:
+    name: iot-producer
+
 server:
   port: 8019
 
@@ -5,3 +9,11 @@ kafka:
   producer:
     bootstrap: localhost:9092
     topic: iotdevice
+
+eureka:
+  instance:
+    leaseRenewalIntervalInSeconds: 1
+    leaseExpirationDurationInSeconds: 2
+  client:
+    serviceUrl:
+      defaultZone: http://127.0.0.1:8761/eureka/
