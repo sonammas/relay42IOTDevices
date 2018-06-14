@@ -20,14 +20,4 @@ public class IotDevice {
 
     private Date date;
 
-    @JsonCreator
-    public IotDevice(@JsonProperty("id") String id,
-                     @JsonProperty("deviceName") String deviceName,
-                     @JsonProperty("value") Long value,
-                     @JsonProperty("date") Date date) {
-        this.id = id;
-        this.deviceName = deviceName;
-        this.date = date;
-        this.value = value;
-    }
 }
